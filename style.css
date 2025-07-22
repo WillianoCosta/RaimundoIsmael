@@ -1,0 +1,450 @@
+/* Variáveis de Cores */
+:root {
+    --primary-color: #DAA520; /* Dourado */
+    --secondary-color: #FFFFFF; /* Branco */
+    --text-color: #333; /* Cinza escuro para texto principal */
+    --dark-background: #000000; /* Preto */
+    --light-background: #F8F8F8; /* Branco levemente acinzentado */
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-background);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+/* Header */
+header {
+    background-color: var(--dark-background);
+    color: var(--secondary-color);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Para responsividade do logo e menu */
+}
+
+.logo img {
+    height: 70px; /* Ajuste o tamanho do logo */
+}
+
+.main-nav .nav-list {
+    display: flex;
+}
+
+.main-nav .nav-list li {
+    margin-left: 30px;
+}
+
+.main-nav .nav-list a {
+    color: var(--secondary-color);
+    font-weight: bold;
+    padding: 10px 0;
+    transition: color 0.3s ease;
+}
+
+.main-nav .nav-list a:hover {
+    color: var(--primary-color);
+}
+
+/* Menu Responsivo (Hamburger) */
+.menu-toggle {
+    display: none; /* Esconde por padrão em desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Animação do Hamburger */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Hero Section */
+.hero {
+    background: url('dentista.jpeg') no-repeat center center/cover; /* Usando a imagem do dentista para o hero */
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 150px 20px;
+    position: relative;
+}
+
+.hero::before { /* Overlay para melhorar a legibilidade do texto */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Preto semi-transparente */
+}
+
+.hero .container {
+    position: relative; /* Para garantir que o conteúdo fique acima do overlay */
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--dark-background);
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #C19200; /* Dourado um pouco mais escuro */
+    transform: translateY(-3px);
+}
+
+/* Sections Gerais */
+section {
+    padding: 80px 0;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    color: var(--primary-color);
+    position: relative;
+}
+
+section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 10px auto 0;
+}
+
+/* Sobre Mim */
+.about {
+    background-color: var(--secondary-color);
+}
+
+.about-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap; /* Para responsividade */
+}
+
+.about-image {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    border-radius: 50%; /* Imagem redonda */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 5px solid var(--primary-color);
+}
+
+.about-text {
+    flex: 2;
+    min-width: 300px;
+}
+
+.about-text h2 {
+    text-align: left;
+    margin-bottom: 20px;
+}
+.about-text h2::after {
+    margin: 10px 0 0 0; /* Alinha o after à esquerda */
+}
+
+/* Serviços */
+.services {
+    background-color: var(--light-background);
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-item {
+    background-color: var(--secondary-color);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.service-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.service-item p {
+    color: var(--text-color);
+}
+
+/* Contato */
+.contact {
+    background-color: var(--dark-background);
+    color: var(--secondary-color);
+    text-align: center;
+}
+
+.contact h2 {
+    color: var(--primary-color);
+}
+.contact h2::after {
+    background-color: var(--primary-color);
+}
+
+.contact p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+}
+
+.contact-info a {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.social-media {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-media img {
+    height: 35px; /* Ajuste o tamanho dos ícones */
+    width: 35px;
+    filter: brightness(0) saturate(100%) invert(86%) sepia(30%) saturate(1478%) hue-rotate(334deg) brightness(101%) contrast(105%); /* Tentar deixar os ícones dourados */
+    transition: transform 0.3s ease;
+}
+
+.social-media a:hover img {
+    transform: scale(1.1);
+}
+
+.contact-form {
+    background-color: var(--secondary-color);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 50px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-color); /* Para o texto do formulário */
+}
+
+.contact-form h3 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.2);
+}
+
+.contact-form button {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--dark-background);
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #C19200;
+    transform: translateY(-3px);
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-background);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 25px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .main-nav .nav-list {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: var(--dark-background);
+        position: absolute;
+        top: 100px; /* Ajuste para ficar abaixo do header */
+        left: 0;
+        padding: 20px 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .main-nav .nav-list.active {
+        display: flex;
+    }
+
+    .main-nav .nav-list li {
+        margin: 15px 0;
+    }
+
+    .menu-toggle {
+        display: block; /* Mostra o hamburger */
+    }
+
+    .hero h1 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1.2em;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text h2 {
+        text-align: center;
+    }
+    .about-text h2::after {
+        margin: 10px auto 0;
+    }
+
+    .about-image img {
+        width: 250px; /* Ajuste para telas menores */
+        height: 250px;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        height: 60px;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    section {
+        padding: 50px 0;
+    }
+
+    section h2 {
+        font-size: 2em;
+    }
+
+    .contact-form {
+        padding: 20px;
+    }
+
+    .contact-form h3 {
+        font-size: 1.5em;
+    }
+}
